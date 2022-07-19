@@ -31,13 +31,27 @@ public class Citas {
 	@Column
 	private String usuario;
 
-	public Citas(int id, int id_profesor, String nombre, LocalDateTime fecha_inicio, LocalDateTime fecha_fin) {
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public Citas(int id, int id_profesor, String nombre, LocalDateTime fecha_inicio, LocalDateTime fecha_fin,
+			String usuario) {
 		super();
 		this.id = id;
 		this.id_profesor = id_profesor;
 		this.nombre = nombre;
 		this.fecha_inicio = fecha_inicio;
 		this.fecha_fin = fecha_fin;
+		this.usuario = usuario;
+	}
+
+	public Citas() {
+		super();
 	}
 
 	public int getId() {

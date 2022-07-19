@@ -38,6 +38,10 @@ public class CitasDisponibles {
 		this.fecha_inicio = fecha_inicio;
 		this.fecha_fin = fecha_fin;
 	}
+	
+	public CitasDisponibles() {
+		super();
+	}
 
 	public int getId() {
 		return id;
