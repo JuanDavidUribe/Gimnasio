@@ -1,6 +1,7 @@
 package com.proyecto.gimnasio.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ public class Authcontroller {
 	@Autowired
 	private JWTUtil jwtUtil;
 	
-	@RequestMapping(value = "/iniciarSesion")
+	@PostMapping("/iniciarSesion")
 	public String iniciarSesion (@RequestBody Usuarios usuario) {
 		Usuarios usuarioLog = usuariosDao.obtenerUsuario(usuario);
 		if (usuarioLog != null) {
