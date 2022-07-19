@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "citas_disponibles")
@@ -25,6 +26,9 @@ public class CitasDisponibles {
 	
 	@Column
 	private LocalDateTime fecha_fin;
+	
+	@Column
+	private int cupo;
 
 	public CitasDisponibles(int id, int id_profesor, String nombre, LocalDateTime fecha_inicio, LocalDateTime fecha_fin) {
 		super();

@@ -27,6 +27,9 @@ public class Citas {
 	
 	@Column
 	private LocalDateTime fecha_fin;
+	
+	@Column
+	private String usuario;
 
 	public Citas(int id, int id_profesor, String nombre, LocalDateTime fecha_inicio, LocalDateTime fecha_fin) {
 		super();
