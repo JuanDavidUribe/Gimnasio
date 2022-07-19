@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: #fff;
+}
+
+html {
+    background-color: #000000ef;
+    scroll-behavior: smooth;
+    letter-spacing: 1px;
+    scroll-snap-type: y mandatory;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 300%;
+}
+
+p {
+    font-size: 120%;
+    line-height: 40px;
+}
+
+.l {
+    text-align: left;
+}
+
+.pilares{
+    margin: 20px;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.79), #2657082a), url('../images/bg-head-02.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.intro {
+    width: 100%;
+    font-size: 130%;
+    position: relative;
+}
+
+.navbar {
+    width: 100%;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1;
+}
+
+.navbar ul {
+    margin-right: 20px;
+}
+
+#logo {
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 5px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: rgb(175, 175, 175);
+    text-transform: uppercase;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #73A9AD;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+
+.content h1 {
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.span {
+    font-weight: 700;
+    color: #73A9AD;
+}
+
+button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #73A9AD;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-mov {
+    background: #73A9AD;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+button:hover {
+    border: none;
+    margin: 22px 10px;
+}
+
+
+/* <CAROUSEL> */
+
+.categories {
+    margin: 0px 30px;
+    color: white;
+    font-size: 18px;
+}
+
+.carousel {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
+}
+
+.carousel::-webkit-scrollbar {
+    background-color: #c0c0c011;
+    height: 12px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background-color: #31313134;
+    border-radius: 15px;
+}
+
+.carousel__container {
+    /*Muy util es para que el contenido no haga salto de linea al llegar al final de la pantalla, si no para que se mueva con scroll|*/
+    white-space: nowrap;
+    margin: 65px 30px;
+    padding-bottom: 10px;
+}
+
+.carousel-item {
+    background-color: #7be6e6;
+    width: 200px;
+    height: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-right: 10px;
+    display: inline-block;
+    /*es para el tiempo de la transicion*/
+    transition: 450ms all;
+    /*Para que la imagen se forme hacia la izquierda en el hiver*/
+    transform-origin: center left;
+    position: relative;
+}
+
+
+/*Le estoy diciendo que haga esta accion los items con respecto al hover*/
+
+
+/*Le damos un despazaiento orizontal de 100px con respecto al item que tocamos*/
+
+.carousel-item:hover~.carousel-item {
+    transform: translate3d(100px, 0, 0);
+}
+
+.carousel__container:hover .carousel-item {
+    opacity: 0.3;
+}
+
+
+/*hacemos que se amplie el item*/
+
+.carousel__container:hover .carousel-item:hover {
+    transform: scale(1.5);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.carousel-item__img {
+    width: 100%;
+    height: 250px;
+    /*Para que la imagen vuelva a su estado original y se vea mejor*/
+    object-fit: cover;
+}
+
+.carousel-item__details {
+    /*Desvanecido*/
+    background: linear-gradient( to top, rgba(0, 0, 0, 0.9) 0%, to top, rgba(0, 0, 0, 0) 100%);
+    font-size: 10px;
+    opacity: 0;
+    transition: 450ms;
+    padding: 10px;
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.carousel-item__details p {
+    color: white;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    text-transform: capitalize;
+}
+
+.carousel-item__img:hover~.carousel-item__details {
+    opacity: 1;
+}
+
+.carousel-item__details:hover {
+    opacity: 1;
+}
+
+.carousel-item__details img:hover {
+    cursor: pointer;
+}
+
+.we-are{
+    height: 100vh;
+}
+
+.carousel-item__details--title {
+    font-size: 150%;
+}
+.cards {
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cards h2 {
+    margin-bottom: 10%;
+}
+
+.content-cards {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.card {
+    background-color: #ffffff04;
+    width: 30%;
+    text-align: center;
+    height: 330px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+    transform: scale(1);
+    transition: transform 0.6s;
+    margin: 10px;
+}
+
+.card:hover {
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    transform: scale(1.05);
+}
+
+.user-icon {
+    width: 50px;
+    margin: 30px;
+    object-fit: cover;
+}
+
+.user-desc {
+    margin: 20px;
+}
+
+.icon-ex {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin: auto;
+    padding: 80px 0;
+}
+
+.icon-ex h2 {
+    margin-bottom: 5%;
+}
+
+.ex-icon-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.icon-container {
+    width: 150%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-container img {
+    width: 55%;
+    object-fit: cover;
+}
+
+.icon__desc {
+    width: 50%;
+}
+
+.footer {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.396);
+    height: 100px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 10px;
+    bottom: 0;
+}
+
+.pilares{
+    text-align: center;
+}
+
+.social {
+    margin: 5px;
+}
+
+.social img {
+    object-fit: cover;
+}
+
+.social__container {
+    margin-right: 40px;
+}
