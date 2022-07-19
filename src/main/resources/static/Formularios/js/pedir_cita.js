@@ -12,9 +12,10 @@ dataHeader = `<tr>
 const getData = async () => {
   let response = [];
   let tableText = dataHeader;
-  let table = document.querySelector("#customer");
+  let table = document.querySelector("#customers");
   let request = await fetch(getInitialData);
   response = await request.json();
+  console.log(response);
   response.forEach((data) => {
     tableText += generateRow(data);
   });
@@ -31,11 +32,13 @@ const saveData = async (data) => {
 
 const generateRow = (data) => {
   return `<tr>
-        <td>${data.clase}</td>
-        <td>${data.profesor}</td>
-        <td>${data.fechaInicio}</td>
-        <td>${data.fechaFin}</td>
+        <td>${data.nombre}</td>
+        <td>Alberto Gonzales</td>
+        <td>${data.fecha_inicio}</td>
+        <td>${data.fecha_fin}</td>
         <td>${data.cupo}</td>
         <td> <a id="row${data.id}"  class="btn" href="#" onclick="saveData(data)">Inscribirme</a><br></td>
     </tr>`;
 };
+console.log('hola');
+getData();
