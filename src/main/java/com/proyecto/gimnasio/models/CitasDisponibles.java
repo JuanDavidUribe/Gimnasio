@@ -30,13 +30,14 @@ public class CitasDisponibles {
 	@Column
 	private int cupo;
 
-	public CitasDisponibles(int id, int id_profesor, String nombre, LocalDateTime fecha_inicio, LocalDateTime fecha_fin) {
+	public CitasDisponibles(int id, int id_profesor, String nombre, LocalDateTime fecha_inicio, LocalDateTime fecha_fin, int cupo) {
 		super();
 		this.id = id;
 		this.id_profesor = id_profesor;
 		this.nombre = nombre;
 		this.fecha_inicio = fecha_inicio;
 		this.fecha_fin = fecha_fin;
+		this.cupo = cupo;
 	}
 	
 	public CitasDisponibles() {
@@ -81,6 +82,14 @@ public class CitasDisponibles {
 
 	public void setFecha_fin(LocalDateTime fecha_fin) {
 		this.fecha_fin = fecha_fin;
+	}
+
+	public int getCupo() {
+		return cupo;
+	}
+
+	public void setCupo(int cupo) {
+		this.cupo = cupo;
 	}
 
 }

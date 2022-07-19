@@ -3,6 +3,8 @@ package com.proyecto.gimnasio.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +20,17 @@ public class CitasController {
 	CitasDao citasDao;
 	
 	@PostMapping("/guardar")
-	public void guardarCita(@RequestBody Citas cita) {
-		citasDao.guardar(cita);
+	public String guardarCita(@RequestBody Citas cita) {
+		try {
+			citasDao.guardar(cita);
+			return "ok";
+		} catch (Exception e) {
+			return "fail";
+		}
 	}
 	
 	@GetMapping("/listar")
-	public ResponseEntity<List<Citas>> listarCitas (){
+	public List<Citas> listarCitas (){
 		return citasDao.listar();
 	}
 }
