@@ -26,7 +26,7 @@ public class CitasDisponiblesDaoImp implements CitasDisponiblesDao{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<CitasDisponibles> listar() {
-		String query = "from CitasDisponibles";
+		String query = "from CitasDisponibles cd where cd.cupo > 0 ";
 		return entityManager.createQuery(query).getResultList();
 	}
 

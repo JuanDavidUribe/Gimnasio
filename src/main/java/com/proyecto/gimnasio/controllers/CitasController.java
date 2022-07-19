@@ -11,19 +11,19 @@ import com.proyecto.gimnasio.dao.CitasDao;
 import com.proyecto.gimnasio.models.Citas;
 
 @RestController
-@RequestMapping("citas")
+@RequestMapping("/api/citas")
 public class CitasController {
 	
 	@Autowired
 	CitasDao citasDao;
 	
-	@RequestMapping(value = "/guardar")
+	@PostMapping("/guardar")
 	public void guardarCita(@RequestBody Citas cita) {
 		citasDao.guardar(cita);
 	}
 	
-	@RequestMapping(value = "/listar")
-	public List<Citas> listarCitas (){
+	@GetMapping("/listar")
+	public ResponseEntity<List<Citas>> listarCitas (){
 		return citasDao.listar();
 	}
 }

@@ -11,18 +11,18 @@ import com.proyecto.gimnasio.dao.CitasDisponiblesDao;
 import com.proyecto.gimnasio.models.CitasDisponibles;
 
 @RestController
-@RequestMapping("disponibles")
+@RequestMapping("/api/disponibles")
 public class CitasDisponiblesController {
 
 	@Autowired
 	CitasDisponiblesDao citasDisponiblesDao;
 	
-	@RequestMapping("guardar")
+	@PostMapping("/guardar")
 	public void guardarCitaDisopnible (@RequestBody CitasDisponibles citasDisponibles) {
 		citasDisponiblesDao.guardar(citasDisponibles);
 	}
 	
-	@RequestMapping(value = "listar")
+	@GetMapping("/listar")
 	public List<CitasDisponibles> listar (){
 		return citasDisponiblesDao.listar();
 	}
