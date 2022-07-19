@@ -31,4 +31,5 @@ let dataTest = [
 
 const getData = async () =>{
     let request = await fetch(getInitialData);
+    let response = await request.json();
 }
